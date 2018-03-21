@@ -7,7 +7,6 @@ import './App.css';
 class App extends Component {
   render() {
     const { data } = this.props;
-
     let hello, fortune;
     
     if (!data.loading) {
@@ -41,4 +40,5 @@ const QUERY = gql`
 
 export default graphql(QUERY, {
   options: ({ name }) => ({ variables: { name } }),
+  // options: { variables: { name: params.name } }
 })(App);

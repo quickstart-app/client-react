@@ -7,11 +7,31 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from 'react-apollo';
+import {
+  HashRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
 const client = new ApolloClient({
-  link: new HttpLink({uri: 'http://localhost:3000/graphql'}),
+  link: new HttpLink({uri: 'https://pacific-forest-69881.herokuapp.com/graphql'}),
   cache: new InMemoryCache(),
 });
 
-ReactDOM.render(<ApolloProvider client={client}><App name="Rafael" /></ApolloProvider>, document.getElementById('root'));
+ReactDOM.render(
+  <Router>
+    <ApolloProvider client={client}>
+      <div>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+        </ul>
+
+        <hr/>
+
+        <Route exact path="/" component={App}/>
+      </div>
+
+
+    </ApolloProvider>
+  </Router>, document.getElementById('root'));
 registerServiceWorker();
