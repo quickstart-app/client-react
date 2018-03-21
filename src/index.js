@@ -14,7 +14,7 @@ import {
 } from 'react-router-dom'
 
 const client = new ApolloClient({
-  link: new HttpLink({uri: 'https://pacific-forest-69881.herokuapp.com/graphql'}),
+  link: new HttpLink({uri: 'https://client-react.herokuapp.com/graphql'}),
   cache: new InMemoryCache(),
 });
 
