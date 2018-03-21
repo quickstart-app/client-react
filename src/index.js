@@ -13,5 +13,5 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-ReactDOM.render(<ApolloProvider client={client}><App /></ApolloProvider>, document.getElementById('root'));
+ReactDOM.render(<ApolloProvider client={client}><App name="Rafael" /></ApolloProvider>, document.getElementById('root'));
 registerServiceWorker();
