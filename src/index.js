@@ -13,7 +13,7 @@ import {
 } from 'react-router-dom'
 
 const client = new ApolloClient({
-  link: new HttpLink({uri: 'http://localhost:3000/graphql'}),
+  link: new HttpLink({uri: 'https://client-react.herokuapp.com/graphql'}),
   cache: new InMemoryCache(),
 });
 
