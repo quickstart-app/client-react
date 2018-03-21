@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import qs from './stringquery';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
       hello = data.Hello.message;
       fortune = data.GetFortuneCookie.message
     }
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -39,6 +41,8 @@ const QUERY = gql`
 `;
 
 export default graphql(QUERY, {
-  options: ({ name }) => ({ variables: { name } }),
-  // options: { variables: { name: params.name } }
+  options: (props) => {
+    var params = qs(props.location.search);
+    return { variables: { name: params.name }}
+  }
 })(App);
