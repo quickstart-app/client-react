@@ -9,29 +9,18 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from 'react-apollo';
 import {
   HashRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 const client = new ApolloClient({
-  link: new HttpLink({uri: 'https://client-react.herokuapp.com/graphql'}),
+  link: new HttpLink({uri: 'http://localhost:3000/graphql'}),
   cache: new InMemoryCache(),
 });
 
 ReactDOM.render(
   <Router>
     <ApolloProvider client={client}>
-      <div>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-        </ul>
-
-        <hr/>
-
-        <Route exact path="/" component={App}/>
-      </div>
-
-
+        <Route path="/" component={App}/>
     </ApolloProvider>
   </Router>, document.getElementById('root'));
 registerServiceWorker();
