@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './pages/home';
 import registerServiceWorker from './registerServiceWorker';
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
@@ -13,6 +13,7 @@ import {
 } from 'react-router-dom'
 
 const client = new ApolloClient({
+  // link: new HttpLink({uri: 'http://localhost:3000/graphql'}),
   link: new HttpLink({uri: 'https://client-react.herokuapp.com/graphql'}),
   cache: new InMemoryCache(),
 });

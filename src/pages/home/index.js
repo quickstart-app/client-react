@@ -1,9 +1,8 @@
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import qs from './stringquery';
+import qs from 'stringquery';
 
 class App extends Component {
   render() {
@@ -18,7 +17,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">{hello}</h1>
         </header>
         <p className="App-intro">
@@ -28,6 +26,7 @@ class App extends Component {
     );
   }
 }
+
 
 const QUERY = gql`
   query QueryName ($name: String) { 
